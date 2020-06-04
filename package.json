@@ -1,0 +1,8 @@
+{
+  "name": "text-display",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Happa8/text-display.git",
+  "author": "Happa8 <Happa.Eight@gmail.com>",
+  "license": "MIT"
+}
