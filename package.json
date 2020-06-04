@@ -1,16 +1,26 @@
 {
   "name": "text-display",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "index.js",
   "repository": "https://github.com/Happa8/text-display.git",
   "author": "Happa8 <Happa.Eight@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/electron-localshortcut": "^3.1.0",
     "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^5.1.0",
     "electron": "^9.0.2",
+    "electron-localshortcut": "^3.2.1",
     "eslint": "^7.1.0",
+    "parcel": "^1.12.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-dropzone": "^11.0.1",
+    "styled-components": "^5.1.1",
     "typescript": "^3.9.3"
+  },
+  "scripts": {
+    "start": "parcel build src/main.ts src/index.html --public-url ./ -d build --out-file=main --target=electron & electron ./build/main.js"
   }
 }
