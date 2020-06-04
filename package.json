@@ -1,8 +1,16 @@
 {
   "name": "text-display",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/Happa8/text-display.git",
   "author": "Happa8 <Happa.Eight@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/react": "^16.9.35",
+    "electron": "^9.0.2",
+    "eslint": "^7.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^3.9.3"
+  }
 }
