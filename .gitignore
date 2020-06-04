@@ -3,3 +3,4 @@ database.sqlite
 dist
 build
 yarn-error.log
+.cache
