@@ -7,13 +7,13 @@ import { ipcRenderer, remote } from "electron";
 import * as localShortcut from "electron-localshortcut";
 import { library } from "@fortawesome/fontawesome-svg-core";
 // import { far } from "@fortawesome/free-regular-svg-icons";
-import { fas } from "@fortawesome/free-solid-svg-icons";
+import { faRedoAlt, faCog } from "@fortawesome/free-solid-svg-icons";
 const dialog = require("electron").remote.dialog;
 
 const Store = require("electron-store");
 import Button from "./components/button";
 
-library.add(fas);
+library.add(faRedoAlt, faCog);
 
 const store = new Store();
 
@@ -201,14 +201,14 @@ const App: React.FC = () => {
       <Main isDataSet={isDataSet}>
         <Buttons>
           <Button
-            iconprops={{ icon: ["fas", "redo-alt"], color: "#ffffff" }}
+            iconprops={{ icon: "redo-alt", color: "#ffffff" }}
             onClick={() => {
               console.log("onclicked");
               resetData();
             }}
           />
           <Button
-            iconprops={{ icon: ["fas", "redo-alt"], color: "#ffffff" }}
+            iconprops={{ icon: "cog", color: "#ffffff" }}
             onClick={() => {
               console.log("onclicked");
               openSettingWindow();

@@ -65,13 +65,11 @@ const createWindow = async () => {
 
   localshortcut.register(mainWindow, "CommandOrControl+Q", () => {
     settingWindow.close();
-    mainWindow = null;
+    settingWindow.destroy();
     settingWindow = null;
+    mainWindow = null;
     app.quit();
   });
 };
 
-app.on("window-all-closed", () => {
-  app.quit();
-});
 app.on("ready", createWindow);
