@@ -85,7 +85,12 @@ video {
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
-    font-family: "Noto Sans"
+    font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
 }
 
 body {

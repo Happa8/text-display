@@ -1,18 +1,24 @@
 {
   "name": "text-display",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/main.js",
   "repository": "https://github.com/Happa8/text-display.git",
   "author": "Happa8 <Happa.Eight@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-regular-svg-icons": "^5.13.0",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.10",
     "@types/electron-localshortcut": "^3.1.0",
+    "@types/electron-store": "^3.2.0",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
     "@types/styled-components": "^5.1.0",
-    "electron": "^9.0.2",
     "electron-localshortcut": "^3.2.1",
+    "electron-store": "^5.1.1",
     "eslint": "^7.1.0",
+    "font-scanner": "^0.1.2",
     "parcel": "^1.12.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -20,7 +26,20 @@
     "styled-components": "^5.1.1",
     "typescript": "^3.9.3"
   },
+  "devDependencies": {
+    "electron": "^9.0.2",
+    "electron-builder": "^22.7.0",
+    "electron-rebuild": "^1.11.0"
+  },
   "scripts": {
-    "start": "parcel build src/main.ts src/index.html --public-url ./ -d build --out-file=main --target=electron & electron ./build/main.js"
+    "start": "parcel build src/main.ts src/index.html src/setting.html --public-url ./ -d build --out-file=main --target=electron & electron ./build/main.js",
+    "build": "node ./build-win"
+  },
+  "build": {
+    "extends": null,
+    "files": [
+      "build/**/*",
+      "package.json"
+    ]
   }
 }

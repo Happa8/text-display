@@ -4,6 +4,7 @@ const fs = require("fs");
 import * as localshortcut from "electron-localshortcut";
 
 let mainWindow: BrowserWindow | null;
+let settingWindow: BrowserWindow | null;
 
 const createWindow = async () => {
   var filedata: Array<string> = [];
@@ -22,9 +23,32 @@ const createWindow = async () => {
   //mainWindow.setMenu(null);
 
   mainWindow.on("closed", () => {
+    settingWindow.close();
     mainWindow = null;
   });
 
+  settingWindow = new BrowserWindow({
+    width: 1000,
+    height: 700,
+    webPreferences: {
+      nodeIntegration: true,
+    },
+    show: false,
+  });
+  settingWindow.loadURL(`file:///${__dirname}/setting.html`);
+  settingWindow.on("close", (event: any) => {
+    event.preventDefault();
+    settingWindow.hide();
+  });
+
+  ipcMain.on("setSetting", (event, arg) => {
+    mainWindow.webContents.send("reload", "setting");
+  });
+
+  ipcMain.on("opensetting", (event, arg) => {
+    console.log("showsetting");
+    settingWindow.show();
+  });
   ipcMain.on("filepath", (event, arg) => {
     console.log(arg);
     fs.readFile(arg, (error: any, data: any) => {
@@ -40,8 +64,14 @@ const createWindow = async () => {
   });
 
   localshortcut.register(mainWindow, "CommandOrControl+Q", () => {
+    settingWindow.close();
+    mainWindow = null;
+    settingWindow = null;
     app.quit();
   });
 };
 
+app.on("window-all-closed", () => {
+  app.quit();
+});
 app.on("ready", createWindow);
